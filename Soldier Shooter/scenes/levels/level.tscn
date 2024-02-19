@@ -1,22 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpburlo5e8c4q"]
+[gd_scene load_steps=5 format=3 uid="uid://cpburlo5e8c4q"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_m6s6h"]
+[ext_resource type="Texture2D" uid="uid://d2b0akf8ncwxl" path="res://graphics/objects/gate.png" id="3_g3new"]
 [ext_resource type="PackedScene" uid="uid://c4ibdhlqeds3w" path="res://scenes/player/level.tscn" id="3_hcpcu"]
-[ext_resource type="PackedScene" uid="uid://b0sdqyv5udb21" path="res://scenes/objects/billboard.tscn" id="4_atvkh"]
-[ext_resource type="PackedScene" uid="uid://gtx4hy5hlcnb" path="res://scenes/objects/bed.tscn" id="4_mft4y"]
-[ext_resource type="PackedScene" uid="uid://dlh3kehx85el" path="res://scenes/enemies/drone.tscn" id="5_2aop3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_537qh"]
+size = Vector2(834.5, 240.875)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_m6s6h")
 
-[node name="Bed" parent="." instance=ExtResource("4_mft4y")]
-position = Vector2(572, -3)
+[node name="Gate" type="StaticBody2D" parent="."]
+
+[node name="Gate" type="Sprite2D" parent="Gate"]
+position = Vector2(537, -592)
+texture = ExtResource("3_g3new")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gate"]
+polygon = PackedVector2Array(-902, -1372, -902, -92, -890, 2, -864, 60, -825, 112, -771, 152, -717, 177, -676, 185, 172, 187, 173, -45, 1031, -44, 1027, 187, 1847, 187, 1895, 182, 1939, 168, 1972, 151, 2001, 132, 2021, 112, 2041, 90, 2066, 55, 2083, 17, 2096, -24, 2100, -857, 2100, -1372)
+
+[node name="Area2D" type="Area2D" parent="Gate"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/Area2D"]
+position = Vector2(596, 149)
+shape = SubResource("RectangleShape2D_537qh")
 
 [node name="Player" parent="." instance=ExtResource("3_hcpcu")]
-position = Vector2(907, 427)
+position = Vector2(603, 567)
 
-[node name="Billboard" parent="." instance=ExtResource("4_atvkh")]
-position = Vector2(599, 661)
-
-[node name="Drone" parent="." instance=ExtResource("5_2aop3")]
-position = Vector2(174, 401)
+[connection signal="body_entered" from="Gate/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Gate/Area2D" to="." method="_on_area_2d_body_exited"]
