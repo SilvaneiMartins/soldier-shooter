@@ -1,12 +1,12 @@
 extends Sprite2D
 
 var pos: Vector2 = Vector2.ZERO
-const speed: int = 3
+const speed: int = 10
 var test_scale: int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pos = Vector2(100, 200)
+	pos = Vector2(300, 300)
 	position = pos
 	
 	var test_rotation = 45
@@ -18,8 +18,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pos.x += speed
+	pos.x += speed * delta
 	position = pos
-
-	test_scale += 0.1
-	scale = Vector2(test_scale, test_scale)
