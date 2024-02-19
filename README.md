@@ -8,10 +8,10 @@
     🚀 ANDAMENTO 🚀
 </h4>
 
-<!-- <h1 align="center">
-    <a href="https://imgur.com/PoqhQ2T"><img src="https://i.imgur.com/PoqhQ2T.png" title="source: imgur.com" /></a>
+<h1 align="center">
+    <a href="https://imgur.com/Rv6FmsH"><img src="https://i.imgur.com/Rv6FmsH.png" title="source: imgur.com" /></a>
     <br />
-</h1> -->
+</h1>
 
 ## Sobre o Projeto
 
