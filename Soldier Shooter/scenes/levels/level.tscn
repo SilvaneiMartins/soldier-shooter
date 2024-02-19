@@ -1,32 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpburlo5e8c4q"]
+[gd_scene load_steps=4 format=3 uid="uid://cpburlo5e8c4q"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_m6s6h"]
-[ext_resource type="Texture2D" uid="uid://d2b0akf8ncwxl" path="res://graphics/objects/gate.png" id="3_g3new"]
 [ext_resource type="PackedScene" uid="uid://c4ibdhlqeds3w" path="res://scenes/player/level.tscn" id="3_hcpcu"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_537qh"]
-size = Vector2(834.5, 240.875)
+[ext_resource type="PackedScene" uid="uid://ciutxub5ypl6" path="res://scenes/objects/gate.tscn" id="3_s75j2"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_m6s6h")
 
-[node name="Gate" type="StaticBody2D" parent="."]
-
-[node name="Gate" type="Sprite2D" parent="Gate"]
-position = Vector2(537, -592)
-texture = ExtResource("3_g3new")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gate"]
-polygon = PackedVector2Array(-902, -1372, -902, -92, -890, 2, -864, 60, -825, 112, -771, 152, -717, 177, -676, 185, 172, 187, 173, -45, 1031, -44, 1027, 187, 1847, 187, 1895, 182, 1939, 168, 1972, 151, 2001, 132, 2021, 112, 2041, 90, 2066, 55, 2083, 17, 2096, -24, 2100, -857, 2100, -1372)
-
-[node name="Area2D" type="Area2D" parent="Gate"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/Area2D"]
-position = Vector2(596, 149)
-shape = SubResource("RectangleShape2D_537qh")
+[node name="Gate" parent="." instance=ExtResource("3_s75j2")]
+position = Vector2(524, -551)
 
 [node name="Player" parent="." instance=ExtResource("3_hcpcu")]
 position = Vector2(603, 567)
 
-[connection signal="body_entered" from="Gate/Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Gate/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
+[connection signal="grenade" from="Player" to="." method="_on_player_grenade"]
+[connection signal="laser" from="Player" to="." method="_on_player_laser"]
