@@ -5,7 +5,7 @@
 </h1>
 
 <h4 align="center">
-    🚀 ANDAMENTO 🚀
+    🚀 GAME em ANDAMENTO 🚀
 </h4>
 
 <h1 align="center">
@@ -16,7 +16,6 @@
 ## Sobre o Projeto
 
 Bem-vindo ao projeto Game Soldier Shooter desenvolvido utilizando a Engine Godot! A engine Dodot.
-
 
 ```bash
     # Clone o Repositório:
@@ -31,7 +30,7 @@ Bem-vindo ao projeto Game Soldier Shooter desenvolvido utilizando a Engine Godot
 
 ## Licença
 
-Este projeto é licenciado sob [CC0 1.0 Universal]. Consulte o arquivo [LICENSE]( https://github.com/SilvaneiMartins/sam-fitness/blob/master/LICENSE) para obter detalhes.
+Este projeto é licenciado sob [CC0 1.0 Universal]. Consulte o arquivo [LICENSE](https://github.com/SilvaneiMartins/sam-fitness/blob/master/LICENSE) para obter detalhes.
 
 ## Canal no YouTube
 
